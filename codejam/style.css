@@ -1,0 +1,135 @@
+body{
+    margin: 0;
+}
+.all_container{
+    background-image: url(/codejam/assets/home.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    gap: 20px;
+    height: 100vh;
+    justify-content: space-between;
+    width: 100vw;
+}
+.olds_container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-width: 40%;
+    padding: 20px;
+}
+.old_A, .old_C, .old_I, .old_S{
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 260px;
+    width: 200px;
+}
+.old_A{
+    background-image: url(/codejam/assets/Ancients/Azathoth.png);
+} 
+.old_C{
+    background-image: url(/codejam/assets/Ancients/Cthulthu.png);
+}
+.old_I{
+    background-image: url(/codejam/assets/Ancients/IogSothoth.png);
+} 
+.old_S{
+    background-image: url(/codejam/assets/Ancients/ShubNiggurath.png);
+}
+.old_A.active, .old_C.active, .old_I.active, .old_S.active{
+    border: 2px solid red;
+}
+.buttons_container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    justify-content: center;
+}
+.desk_container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    min-width: 30%;
+}
+.button{
+    border: 2px solid purple;
+    box-sizing: border-box;
+    color: purple;
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+}
+.button.active{
+    background-color: red;
+}
+.desk_container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    min-width: 30%;
+}
+.desk_button{
+    background-color: red;
+    border: 2px solid purple;
+    color: purple;
+    cursor: pointer;
+    padding: 5px;
+}
+.current_state{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 30%;
+}
+.stage_container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.stage_text{
+    color: purple;
+}
+.dots_container{
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.dot{
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    width: 30px;
+}
+.dot.green{
+    background-color: green;
+}
+.dot.red{
+    background-color: brown;
+}
+.dot.blue{
+    background-color: blue;
+}
+.many_card{
+    background-image: url(/codejam/assets/mythicCardBackground.png);
+    cursor: pointer;
+}
+
+.many_card, .next_card{
+    background-size: cover;
+    height: 190px;
+    width: 130px;
+}
