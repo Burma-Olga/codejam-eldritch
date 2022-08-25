@@ -2,7 +2,7 @@ body{
     margin: 0;
 }
 .all_container{
-    background-image: url("/assets/home.png");
+    background-image: url(./assets/home.png);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -30,16 +30,16 @@ body{
     width: 200px;
 }
 .old_A{
-    background-image: url("/assets/Ancients/Azathoth.png");
+    background-image: url(./assets/Ancients/Azathoth.png);
 } 
 .old_C{
-    background-image: url("/assets/Ancients/Cthulthu.png");
+    background-image: url(./assets/Ancients/Cthulthu.png);
 }
 .old_I{
-    background-image: url("/assets/Ancients/IogSothoth.png");
+    background-image: url(./assets/Ancients/IogSothoth.png);
 } 
 .old_S{
-    background-image: url("/assets/Ancients/ShubNiggurath.png");
+    background-image: url(./assets/Ancients/ShubNiggurath.png);
 }
 .old_A.active, .old_C.active, .old_I.active, .old_S.active{
     border: 2px solid red;
@@ -124,7 +124,7 @@ body{
     background-color: blue;
 }
 .many_card{
-    background-image: url("/assets/mythicCardBackground.png");
+    background-image: url(./assets/mythicCardBackground.png);
     cursor: pointer;
 }
 
