@@ -45,12 +45,16 @@ body{
     border: 2px solid red;
 }
 .buttons_container{
+    display: none;
+}
+.buttons_container.active{
     display: flex;
     flex-direction: column;
     gap: 20px;
     height: 100vh;
     justify-content: center;
 }
+
 .desk_container{
     align-items: center;
     display: flex;
@@ -59,7 +63,7 @@ body{
     justify-content: center;
     min-width: 30%;
 }
-.button{
+.button_2H, .button_H, .button_HB, .button_B, .button_2B{
     border: 2px solid purple;
     box-sizing: border-box;
     color: purple;
@@ -67,7 +71,7 @@ body{
     padding: 5px;
     text-align: center;
 }
-.button.active{
+.button_2H.active, .button_H.active, .button_HB.active, .button_B.active, .button_2B.active{
     background-color: red;
 }
 .desk_container{
