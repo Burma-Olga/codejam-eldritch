@@ -83,6 +83,10 @@ body{
     min-width: 30%;
 }
 .desk_button{
+    display: none;
+}
+.desk_button.active{
+    display: flex;
     background-color: red;
     border: 2px solid purple;
     color: purple;
@@ -90,6 +94,9 @@ body{
     padding: 5px;
 }
 .current_state{
+    display: none;
+}
+.current_state.active{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -121,13 +128,17 @@ body{
 .dot.green{
     background-color: green;
 }
-.dot.red{
+.dot.brown{
     background-color: brown;
 }
 .dot.blue{
     background-color: blue;
 }
 .many_card{
+    display: none;
+}
+.many_card.active{
+    display: flex;
     background-image: url(./assets/mythicCardBackground.png);
     cursor: pointer;
 }
