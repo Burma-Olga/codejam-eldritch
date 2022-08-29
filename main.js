@@ -34,6 +34,7 @@ OlderA.addEventListener('click', () =>{
     ButtonH.classList.remove('active');
     Button2H.classList.remove('active');
     DeskButton.classList.remove('active');
+    NextColorButton.classList.remove('active');
 });
 OlderC.addEventListener('click', () =>{
     OlderC.classList.add('active');
@@ -49,6 +50,7 @@ OlderC.addEventListener('click', () =>{
     ButtonH.classList.remove('active');
     Button2H.classList.remove('active');
     DeskButton.classList.remove('active');
+    NextColorButton.classList.remove('active');
 });
 OlderI.addEventListener('click', () =>{
     OlderI.classList.add('active');
@@ -64,6 +66,7 @@ OlderI.addEventListener('click', () =>{
     ButtonH.classList.remove('active');
     Button2H.classList.remove('active');
     DeskButton.classList.remove('active');
+    NextColorButton.classList.remove('active');
 });
 OlderS.addEventListener('click', () =>{
     OlderS.classList.add('active');
@@ -79,6 +82,7 @@ OlderS.addEventListener('click', () =>{
     ButtonH.classList.remove('active');
     Button2H.classList.remove('active');
     DeskButton.classList.remove('active');
+    NextColorButton.classList.remove('active');
 });
 Button2B.addEventListener('click', () =>{
     Button2B.classList.add('active');
@@ -89,6 +93,7 @@ Button2B.addEventListener('click', () =>{
     Button2H.classList.remove('active');
     BlockColorButton.classList.remove('active');
     ManyColorCards.classList.remove('active');
+    NextColorButton.classList.remove('active');
 });
 ButtonB.addEventListener('click', () =>{
     ButtonB.classList.add('active');
@@ -99,6 +104,7 @@ ButtonB.addEventListener('click', () =>{
     Button2H.classList.remove('active');
     BlockColorButton.classList.remove('active');
     ManyColorCards.classList.remove('active');
+    NextColorButton.classList.remove('active');
 });
 ButtonHB.addEventListener('click', () =>{
     ButtonHB.classList.add('active');
@@ -109,6 +115,7 @@ ButtonHB.addEventListener('click', () =>{
     Button2H.classList.remove('active');
     BlockColorButton.classList.remove('active');
     ManyColorCards.classList.remove('active');
+    NextColorButton.classList.remove('active');
 });
 ButtonH.addEventListener('click', () =>{
     ButtonH.classList.add('active');
@@ -119,6 +126,7 @@ ButtonH.addEventListener('click', () =>{
     Button2H.classList.remove('active');
     BlockColorButton.classList.remove('active');
     ManyColorCards.classList.remove('active');
+    NextColorButton.classList.remove('active');
 });
 Button2H.addEventListener('click', () =>{
     Button2H.classList.add('active');
@@ -129,6 +137,7 @@ Button2H.addEventListener('click', () =>{
     ButtonH.classList.remove('active');
     BlockColorButton.classList.remove('active');
     ManyColorCards.classList.remove('active');
+    NextColorButton.classList.remove('active');
 });
 
 function GetRandomCards(myArray, number){
@@ -137,24 +146,20 @@ function GetRandomCards(myArray, number){
     for (let i = 0; i < number; i++) {
         let randCard = Math.floor(Math.random()*myArray.length);
         rCard = myArray[randCard];
-        myArray.splice(randCard,1);
+        if (rCard in allCard){ i -= 1}
+        //myArray.splice(randCard,1);
         allCard.push(rCard);
     }
     
     return allCard;
     }
     
-let greenCards = GetRandomCards(greenCardsData,5);
-//console.log(greenCards);
-let brownCards = GetRandomCards(brownCardsData,9);
-//console.log(brownCards);
-let blueCards = GetRandomCards(blueCardsData,2);
-//console.log(blueCards);
 
 function GetNewCardsList(gr1, br1, bl1, gr2, br2, bl2, gr3, br3, bl3){
     let greenCards = GetRandomCards(greenCardsData,gr1+gr2+gr3);
     let brownCards = GetRandomCards(brownCardsData,br1+br2+br3);
     let blueCards = GetRandomCards(blueCardsData,bl1+bl2+bl3);
+
     let listStage1 = [];
     let listStage1green = [];
     let listStage1brown = [];
@@ -204,9 +209,6 @@ function GetNewCardsList(gr1, br1, bl1, gr2, br2, bl2, gr3, br3, bl3){
     listStage1 = listStage1green.concat(listStage1brown, listStage1blue);
     listStage2 = listStage2green.concat(listStage2brown, listStage2blue);
     listStage3 = listStage3green.concat(listStage3brown, listStage3blue);
-    //console.log(listStage1);
-    //console.log(listStage2);
-    //console.log(listStage3);
     return [listStage1, listStage2, listStage3];
     
 }
@@ -230,25 +232,24 @@ DeskButton.addEventListener('click', () =>{
     if(OlderS.classList.contains('active')){
         stages = GetNewCardsList(1,2,1,3,2,1,2,4,0);
         }
-    console.log(stages);
-    //console.log(OlderA.classList.contains('active'));
 });
 ManyColorCards.addEventListener('click', () =>{
     NextColorButton.classList.add('active');
     
     let stage = [];
-    if (stages[0].length>0) {stage = stages[0]
-    //console.log(0)
-    }
+    if (stages[0].length>0) {stage = stages[0]}
     else if (stages[1].length>0) {stage = stages[1]}
     else if (stages[2].length>0) {stage = stages[2]}
+    
     let tempCard = Math.floor(Math.random()*stage.length);
     let nextCard = stage[tempCard];
     stage.splice(tempCard, 1);
     console.log(nextCard);
-            //console.log(stages);
-
     NextColorButton.style.backgroundImage = `url(${nextCard['cardFace']})`;
+    if ((stages[0].length===0)&&(stages[1].length===0)&&(stages[2].length===0)){
+        ManyColorCards.classList.add('end');
+        ManyColorCards.classList.remove('active');
+    }
     }
         
     
