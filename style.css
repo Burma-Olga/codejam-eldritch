@@ -147,7 +147,6 @@ body{
 }
 
 .next_card.active{
-    background-image: url(../assets/MythicCards/green/green17.png);
     background-size: cover;
     height: 190px;
     width: 130px;
