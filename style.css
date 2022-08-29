@@ -138,12 +138,16 @@ body{
     display: none;
 }
 .many_card.active{
+    background-size: cover;
+    height: 190px;
+    width: 130px;
     display: flex;
     background-image: url(./assets/mythicCardBackground.png);
     cursor: pointer;
 }
 
-.many_card, .next_card{
+.next_card.active{
+    background-image: url(../assets/MythicCards/green/green17.png);
     background-size: cover;
     height: 190px;
     width: 130px;
