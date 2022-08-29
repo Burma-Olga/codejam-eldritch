@@ -141,12 +141,17 @@ body{
     background-size: cover;
     height: 190px;
     width: 130px;
-    display: flex;
+    display: block;
     background-image: url(./assets/mythicCardBackground.png);
     cursor: pointer;
 }
-
+.many_card.end{
+    visibility: none;
+    height: 190px;
+    width: 130px;
+}
 .next_card.active{
+    display: block;
     background-size: cover;
     height: 190px;
     width: 130px;
