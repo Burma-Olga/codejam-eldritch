@@ -111,9 +111,6 @@ body{
 .stage_text{
     color: purple;
 }
-.stage-text.done {
-    color: red;
-}
 .dots_container{
     align-items: center;
     display: flex;

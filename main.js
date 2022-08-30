@@ -237,6 +237,9 @@ DeskButton.addEventListener('click', () =>{
     ManyColorCards.classList.add('active');
     DeskButton.classList.remove('active');
     stages = [[],[],[]];
+    StageTextFirst.style.color='purple';
+    StageTextSecond.style.color='purple';
+    StageTextThird.style.color='purple';
     if(OlderA.classList.contains('active')){
         stages = GetNewCardsList(1,2,1,2,3,1,2,4,0);
     }
