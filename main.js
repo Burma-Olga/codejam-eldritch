@@ -147,7 +147,7 @@ function GetRandomCards(myArray, number){
         let randCard = Math.floor(Math.random()*myArray.length);
         rCard = myArray[randCard];
         if (rCard in allCard){ i -= 1}
-        //myArray.splice(randCard,1);
+        //allCard.splice(randCard,1);
         allCard.push(rCard);
     }
     
@@ -156,9 +156,26 @@ function GetRandomCards(myArray, number){
     
 
 function GetNewCardsList(gr1, br1, bl1, gr2, br2, bl2, gr3, br3, bl3){
-    let greenCards = GetRandomCards(greenCardsData,gr1+gr2+gr3);
-    let brownCards = GetRandomCards(brownCardsData,br1+br2+br3);
-    let blueCards = GetRandomCards(blueCardsData,bl1+bl2+bl3);
+    let greenCards;
+    let brownCards;
+    let blueCards;
+    // if(Button2B.classList.add('active')){
+
+    // }
+    // else if(ButtonB.classList.add('active')){
+
+    // }
+    // else if(ButtonHB.classList.add('active')){
+        greenCards = GetRandomCards(greenCardsData,gr1+gr2+gr3);
+        brownCards = GetRandomCards(brownCardsData,br1+br2+br3);
+        blueCards = GetRandomCards(blueCardsData,bl1+bl2+bl3);
+    //}
+    // else if(ButtonH.classList.add('active')){
+
+    // }
+    // else if(Button2B.classList.add('active')){
+
+    // }
 
     let listStage1 = [];
     let listStage1green = [];
@@ -232,7 +249,65 @@ DeskButton.addEventListener('click', () =>{
     if(OlderS.classList.contains('active')){
         stages = GetNewCardsList(1,2,1,3,2,1,2,4,0);
         }
+        UpdateDots(stages);
 });
+const DotGreenFirst = document.querySelector('.dot.green.first');
+const DotBrownFirst = document.querySelector('.dot.brown.first');
+const DotBlueFirst = document.querySelector('.dot.blue.first');
+const DotGreenSecond = document.querySelector('.dot.green.second');
+const DotBrownSecond = document.querySelector('.dot.brown.second');
+const DotBlueSecond = document.querySelector('.dot.blue.second');
+const DotGreenThird = document.querySelector('.dot.green.third');
+const DotBrownThird = document.querySelector('.dot.brown.third');
+const DotBlueThird = document.querySelector('.dot.blue.third');
+const StageTextFirst = document.querySelector('.stage_text.first');
+const StageTextSecond = document.querySelector('.stage_text.second');
+const StageTextThird = document.querySelector('.stage_text.third');
+
+
+function UpdateDots(stages){
+    for(let i=0; i<=2; i++){
+        let DotGreen = 0;
+        let DotBrown = 0;
+        let DotBlue = 0;
+        for (let obj of stages[i]){
+            if(obj['color']==='green'){
+                DotGreen +=1;
+            }
+            else if(obj['color']==='brown'){
+                DotBrown +=1;
+            }
+            else if(obj['color']==='blue'){
+                DotBlue +=1;
+            }
+        }
+        if(i===0){
+            DotGreenFirst.textContent=DotGreen;
+            DotBrownFirst.textContent=DotBrown;
+            DotBlueFirst.textContent=DotBlue;
+            if((DotGreen===0)&&(DotBrown===0)&&(DotBlue===0)){
+                StageTextFirst.style.color='red';
+            }
+        }
+        else if(i===1){
+            DotGreenSecond.textContent=DotGreen;
+            DotBrownSecond.textContent=DotBrown;
+            DotBlueSecond.textContent=DotBlue;
+            if((DotGreen===0)&&(DotBrown===0)&&(DotBlue===0)){
+                StageTextSecond.style.color='red';
+            }
+        }
+        else if(i===2){
+            DotGreenThird.textContent=DotGreen;
+            DotBrownThird.textContent=DotBrown;
+            DotBlueThird.textContent=DotBlue;
+            if((DotGreen===0)&&(DotBrown===0)&&(DotBlue===0)){
+                StageTextThird.style.color='red';
+            }       
+        }
+    }
+}
+
 ManyColorCards.addEventListener('click', () =>{
     NextColorButton.classList.add('active');
     
@@ -250,9 +325,11 @@ ManyColorCards.addEventListener('click', () =>{
         ManyColorCards.classList.add('end');
         ManyColorCards.classList.remove('active');
     }
+    
+    UpdateDots(stages);
     }
-        
+    
     
 );
-    
+
     
