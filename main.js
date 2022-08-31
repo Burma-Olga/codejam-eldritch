@@ -146,9 +146,10 @@ function GetRandomCards(myArray, number){
     for (let i = 0; i < number; i++) {
         let randCard = Math.floor(Math.random()*myArray.length);
         rCard = myArray[randCard];
-        if (rCard in allCard){ i -= 1}
+        if (allCard.indexOf(rCard) === -1 ){ allCard.push(rCard)}
         //allCard.splice(randCard,1);
-        allCard.push(rCard);
+        else{ i--
+            };
     }
     
     return allCard;
