@@ -154,16 +154,6 @@ function GetRandomCards(myArray, number){
     return allCard;
     }
 
-    // let greenTempCardsDataEasy = greenCardsData.filter(card => card.difficulty == 'easy');
-    // let brownTempCardsDataEasy = brownCardsData.filter(card => card.difficulty == 'easy');
-    // let blueTempCardsDataEasy = blueCardsData.filter(card => card.difficulty == 'easy');
-    // let greenTempCardsDataNormal = greenCardsData.filter(card => card.difficulty == 'normal');
-    // let brownTempCardsDataNormal = brownCardsData.filter(card => card.difficulty == 'normal');
-    // let blueTempCardsDataNormal = blueCardsData.filter(card => card.difficulty == 'normal');
-    // let greenTempCardsDataHard = greenCardsData.filter(card => card.difficulty == 'hard');
-    // let brownTempCardsDataHard = brownCardsData.filter(card => card.difficulty == 'hard');
-    // let blueTempCardsDataHard = blueCardsData.filter(card => card.difficulty == 'hard');
-
 function GetRandomVeryEasyCards(myArray, number, difficult){
     let difficultyArray = myArray.filter(card => card.difficulty == difficult);
     let difficultyNormalArray = myArray.filter(card => card.difficulty == 'normal');
@@ -181,14 +171,6 @@ function GetRandomVeryEasyCards(myArray, number, difficult){
     newColorArray = newArrayFirst.concat(newArraySecond);
     return newColorArray;
         
-    // let greenEasyCards = GetRandomCards(greenTempCardsDataEasy, gr1+gr2+gr3);
-    // let brownEasyCards = GetRandomCards(brownTempCardsDataEasy, br1+br2+br3);
-    // let blueEasyCards = GetRandomCards(blueTempCardsDataEasy, bl1+bl2+bl3);
-    // let greenHardCards = GetRandomCards(greenTempCardsDataHard, gr1+gr2+gr3);
-    // let brownHardCards = GetRandomCards(brownTempCardsDataHard, br1+br2+br3);
-    // let blueHardCards = GetRandomCards(blueTempCardsDataHard, bl1+bl2+bl3);
-    // console.log(greenEasyCards);
-
 }
 
 function GetNewCardsList(gr1, br1, bl1, gr2, br2, bl2, gr3, br3, bl3){
@@ -201,6 +183,7 @@ function GetNewCardsList(gr1, br1, bl1, gr2, br2, bl2, gr3, br3, bl3){
     let greenCardsDataWithoutEasy = greenCardsData.filter(card => card.difficulty !== 'easy');
     let brownCardsDataWithoutEasy = brownCardsData.filter(card => card.difficulty !== 'easy');
     let blueCardsDataWithoutEasy = blueCardsData.filter(card => card.difficulty !== 'easy');   
+
     if(Button2B.classList.contains('active')){
         greenCards = GetRandomVeryEasyCards(greenCardsData,gr1+gr2+gr3,'easy');
         brownCards = GetRandomVeryEasyCards(brownCardsData,br1+br2+br3,'easy');
