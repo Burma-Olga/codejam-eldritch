@@ -146,37 +146,69 @@ function GetRandomCards(myArray, number){
     for (let i = 0; i < number; i++) {
         let randCard = Math.floor(Math.random()*myArray.length);
         rCard = myArray[randCard];
-        if (allCard.indexOf(rCard) === -1 ){ allCard.push(rCard)}
+        if (allCard.indexOf(rCard) === -1 ){allCard.push(rCard)}
         //allCard.splice(randCard,1);
-        else{ i--
-            };
+        else{i--};
     }
     
     return allCard;
     }
-    
+
+function GetRandomVeryEasyCards(myArray, number, difficult){
+    let difficultyArray = myArray.filter(card => card.difficulty == difficult);
+    let difficultyNormalArray = myArray.filter(card => card.difficulty == 'normal');
+    let newArrayFirst = [];
+    let newArraySecond = [];
+    let newColorArray = [];
+    if(difficultyArray.length<=number){
+        let number2 = number - difficultyArray.length;
+        newArrayFirst = difficultyArray;
+        newArraySecond = GetRandomCards(difficultyNormalArray, number2);
+    }
+    else if(difficultyArray.length>number){
+        newArrayFirst = GetRandomCards(difficultyArray, number);
+    }
+    newColorArray = newArrayFirst.concat(newArraySecond);
+    return newColorArray;
+        
+}
 
 function GetNewCardsList(gr1, br1, bl1, gr2, br2, bl2, gr3, br3, bl3){
     let greenCards;
     let brownCards;
     let blueCards;
-    // if(Button2B.classList.add('active')){
+    let greenCardsDataWithoutHard = greenCardsData.filter(card => card.difficulty !== 'hard');
+    let brownCardsDataWithoutHard = brownCardsData.filter(card => card.difficulty !== 'hard');
+    let blueCardsDataWithoutHard = blueCardsData.filter(card => card.difficulty !== 'hard');
+    let greenCardsDataWithoutEasy = greenCardsData.filter(card => card.difficulty !== 'easy');
+    let brownCardsDataWithoutEasy = brownCardsData.filter(card => card.difficulty !== 'easy');
+    let blueCardsDataWithoutEasy = blueCardsData.filter(card => card.difficulty !== 'easy');   
 
-    // }
-    // else if(ButtonB.classList.add('active')){
-
-    // }
-    // else if(ButtonHB.classList.add('active')){
+    if(Button2B.classList.contains('active')){
+        greenCards = GetRandomVeryEasyCards(greenCardsData,gr1+gr2+gr3,'easy');
+        brownCards = GetRandomVeryEasyCards(brownCardsData,br1+br2+br3,'easy');
+        blueCards = GetRandomVeryEasyCards(blueCardsData,bl1+bl2+bl3,'easy');
+    }
+    if(ButtonB.classList.contains('active')){
+        greenCards = GetRandomCards(greenCardsDataWithoutHard,gr1+gr2+gr3);
+        brownCards = GetRandomCards(brownCardsDataWithoutHard,br1+br2+br3);
+        blueCards = GetRandomCards(blueCardsDataWithoutHard,bl1+bl2+bl3);
+    }
+    else if(ButtonHB.classList.contains('active')){
         greenCards = GetRandomCards(greenCardsData,gr1+gr2+gr3);
         brownCards = GetRandomCards(brownCardsData,br1+br2+br3);
         blueCards = GetRandomCards(blueCardsData,bl1+bl2+bl3);
-    //}
-    // else if(ButtonH.classList.add('active')){
-
-    // }
-    // else if(Button2B.classList.add('active')){
-
-    // }
+    }
+    else if(ButtonH.classList.contains('active')){
+        greenCards = GetRandomCards(greenCardsDataWithoutEasy,gr1+gr2+gr3);
+        brownCards = GetRandomCards(brownCardsDataWithoutEasy,br1+br2+br3);
+        blueCards = GetRandomCards(blueCardsDataWithoutEasy,bl1+bl2+bl3);
+    }
+    else if(Button2H.classList.contains('active')){
+        greenCards = GetRandomVeryEasyCards(greenCardsData,gr1+gr2+gr3,'hard');
+        brownCards = GetRandomVeryEasyCards(brownCardsData,br1+br2+br3,'hard');
+        blueCards = GetRandomVeryEasyCards(blueCardsData,bl1+bl2+bl3,'hard');
+    }
 
     let listStage1 = [];
     let listStage1green = [];
